@@ -48,20 +48,14 @@ public class TowerModel {
     {
         System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
         // TODO!!
-        if (towers[source].size() == 0) {
-            System.out.println("Invalid move: Empty");
-            return;
-        }
-        int disk = towers[source].pop();
-        if (towers[destination].size() > 0) {
-            int topDisk = towers[destination].get(towers[destination].size() - 1);
-            if (topDisk < disk) {
-                System.out.println("Invalid move: Can't put larger over smaller disk");
-                towers[source].push(disk);
-                return;
+        int sourceIndex = -1;
+        for (int i = 0; i < towerHeight; i++) {
+            if (towers[source].get(i) != 0) {
+                sourceIndex = i;
+                break;
             }
         }
-        towers[destination].push(disk);
+    
     }
 
     // Helper method to nicely print the current model state.
