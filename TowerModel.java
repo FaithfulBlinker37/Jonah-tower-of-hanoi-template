@@ -62,7 +62,13 @@ public class TowerModel {
     
         int disk = towers[source].get(sourceIndex);
         towers[source].set(sourceIndex, 0);
-    
+        int destIndex = -1;
+        for (int i = 0; i < towerHeight; i++) {
+            if (towers[destination].get(i) != 0) {
+                destIndex = i - 1;
+                break;
+            }
+        }
     
     }
 
