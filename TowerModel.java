@@ -52,6 +52,8 @@ public class TowerModel {
             System.out.println("Invalid move: Empty");
             return;
         }
+        int disk = towers[source].pop();
+        
     }
 
     // Helper method to nicely print the current model state.
