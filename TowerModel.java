@@ -53,7 +53,14 @@ public class TowerModel {
             return;
         }
         int disk = towers[source].pop();
-        
+        if (towers[destination].size() > 0) {
+            int topDisk = towers[destination].get(towers[destination].size() - 1);
+            if (topDisk < disk) {
+                System.out.println("Invalid move: Can't put larger over smaller disk");
+                towers[source].push(disk);
+                return;
+            }
+        }
     }
 
     // Helper method to nicely print the current model state.
