@@ -69,7 +69,17 @@ public class TowerModel {
                 break;
             }
         }
+        if (destIndex == -1) {
+            destIndex = towerHeight - 1;
+        }
     
+        if (destIndex < towerHeight - 1 && towers[destination].get(destIndex + 1) < disk) {
+            System.out.println("Invalid move: Can't put larger on smaller disk'");
+            towers[source].set(sourceIndex, disk);
+            return;
+        }
+    
+        towers[destination].set(destIndex, disk);
     }
 
     // Helper method to nicely print the current model state.
