@@ -61,6 +61,7 @@ public class TowerModel {
                 return;
             }
         }
+        towers[destination].push(disk);
     }
 
     // Helper method to nicely print the current model state.
