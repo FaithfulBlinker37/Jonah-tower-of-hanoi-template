@@ -55,6 +55,14 @@ public class TowerModel {
                 break;
             }
         }
+        if (sourceIndex == -1) {
+            System.out.println("Invalid move: Tower empty");
+            return;
+        }
+    
+        int disk = towers[source].get(sourceIndex);
+        towers[source].set(sourceIndex, 0);
+    
     
     }
 
