@@ -48,38 +48,18 @@ public class TowerModel {
     {
         System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
         // TODO!!
-        int sourceIndex = -1;
-        for (int i = 0; i < towerHeight; i++) {
-            if (towers[source].get(i) != 0) {
-                sourceIndex = i;
-                break;
-            }
-        }
-        if (sourceIndex == -1) {
-            System.out.println("Invalid move: Tower empty");
-            return;
-        }
-    
-        int disk = towers[source].get(sourceIndex);
-        towers[source].set(sourceIndex, 0);
-        int destIndex = -1;
-        for (int i = 0; i < towerHeight; i++) {
-            if (towers[destination].get(i) != 0) {
-                destIndex = i - 1;
-                break;
-            }
-        }
-        if (destIndex == -1) {
-            destIndex = towerHeight - 1;
-        }
-    
-        if (destIndex < towerHeight - 1 && towers[destination].get(destIndex + 1) < disk) {
-            System.out.println("Invalid move: Can't put larger on smaller disk'");
-            towers[source].set(sourceIndex, disk);
-            return;
-        }
-    
-        towers[destination].set(destIndex, disk);
+        int disk = towers[source].pop();
+    if (disk == 0) {
+        System.out.println("Invalid move: tower empty.");
+        return;
+    }
+    int topDestination = towers[destination].peek();
+    if (topDestination != 0 && topDestination < disk) {
+        System.out.println("Invalid move: Can't put larger disk on smaller'");
+        towers[source].push(disk);
+        return;
+    }
+        towers[destination].push(disk);    
     }
 
     // Helper method to nicely print the current model state.
