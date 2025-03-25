@@ -50,12 +50,12 @@ public class TowerModel {
         // TODO!!
         int disk = towers[source].pop();
     if (disk == 0) {
-        System.out.println("Invalid move: tower empty.");
+        System.out.println("Disallowed move: the tower is empty");
         return;
     }
     int topDestination = towers[destination].peek();
     if (topDestination != 0 && topDestination < disk) {
-        System.out.println("Invalid move: Can't put larger disk on smaller'");
+        System.out.println("Disallowed move: larger disk can't go on smaller");
         towers[source].push(disk);
         return;
     }
