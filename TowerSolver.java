@@ -24,7 +24,7 @@ public class TowerSolver {
             model.move(start, end);
             return;
         }
-        solve(n - 1, start, end, temporary);
+        solve(n - 1, start, temporary, end);
 
         model.move(start, end);
 
